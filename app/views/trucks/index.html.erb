@@ -1,0 +1,7 @@
+<h1>All Trucks</h1>
+<% @trucks.each do |truck| %>
+  <h3>NAME: <%= truck.name %></h3>
+  <p>DESCRIPTION: <%= truck.description %></p>
+  <p>ADDRESS: <%= truck.address %></p>
+  <p>USER ID: <%= truck.user_id %></p>
+<% end %>
