@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 gem 'simple_form'
 
+gem 'materialize-sass'
+
 gem 'hirb'
 
 gem 'devise'
