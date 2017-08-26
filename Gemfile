@@ -8,6 +8,8 @@ gem 'simple_form'
 
 gem 'materialize-sass'
 
+gem 'materialize-form'
+
 gem 'hirb'
 
 gem 'devise'
