@@ -8,6 +8,15 @@ class TrucksController < ApplicationController
   end
 
   def create
-    @truck = Truck.new(params[:truck_params])
+    @truck = Truck.create(truck_params)
+    redirect_to root_path
+
   end
+
+  private
+
+  def truck_params
+    params.require(:truck).permit(:name, :description, :address)
+  end
+
 end
