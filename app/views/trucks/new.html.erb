@@ -1,10 +1,3 @@
 <h1>Add a new Truck</h1>
 
-<div>
-  <%= simple_form_for @truck do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.submit "Add New Truck" %>
-  <% end %>
-</div>
+<%= render 'form' %>

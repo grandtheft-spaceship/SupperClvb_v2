@@ -10,7 +10,21 @@ class TrucksController < ApplicationController
   def create
     @truck = Truck.create(truck_params)
     redirect_to root_path
+  end
 
+  def show
+    @truck = Truck.find(params[:id])
+  end
+
+  def edit
+    @truck = Truck.find(params[:id])
+  end
+
+  def update
+    @truck = Truck.find(params[:id])
+    @truck.update(truck_params)
+
+    redirect_to truck_path
   end
 
   private
