@@ -22,9 +22,16 @@ class TrucksController < ApplicationController
 
   def update
     @truck = Truck.find(params[:id])
-    @truck.update(truck_params)
+    @truck.update_attributes(truck_params)
 
     redirect_to truck_path
+  end
+
+  def destroy
+    @truck = Truck.find(params[:id])
+    @truck.destroy
+
+    redirect_to root_path
   end
 
   private

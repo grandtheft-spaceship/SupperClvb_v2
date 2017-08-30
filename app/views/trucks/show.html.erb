@@ -4,4 +4,5 @@
   <p><%= @truck.address %></p>
 </div>
 
-<a href="/trucks/<%= @truck.id %>/edit">Edit Truck Details</a>
+<%= link_to 'Edit Truck', edit_truck_path(@truck) %>
+<%= link_to 'Delete Truck', truck_path(@truck), method: :delete, data: {confirm: 'Are you sure you want to delete truck?'} %>
