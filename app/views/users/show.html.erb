@@ -1,0 +1,4 @@
+<h1><%= @user.email %></h1>
+<% @user.trucks.each do |truck| %>
+  <p><a href="/trucks/<%= truck.id %>"><%= truck.name %></p></a>
+<% end %>
