@@ -1,8 +1,17 @@
+<% if @errors %>
+<div class="errors">
+  <h2><%= @errors %></h2>
+</div>
+<% end %>
+
 <div class="">
   <h1><%= @truck.name %></h1>
   <p><%= @truck.description %></p>
   <p><%= @truck.address %></p>
 </div>
 
-<%= link_to 'Edit Truck', edit_truck_path(@truck) %>
-<%= link_to 'Delete Truck', truck_path(@truck), method: :delete, data: {confirm: 'Are you sure you want to delete truck?'} %>
+
+<% if current_user && current_user == @truck.user %>
+  <%= link_to 'Edit Truck', edit_truck_path(@truck) %>
+  <%= link_to 'Delete Truck', truck_path(@truck), method: :delete, data: {confirm: 'Are you sure you want to delete truck?'} %>
+<% end %>

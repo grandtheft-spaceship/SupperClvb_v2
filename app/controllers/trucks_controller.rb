@@ -1,4 +1,6 @@
 class TrucksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @trucks = Truck.all
   end
@@ -18,19 +20,34 @@ class TrucksController < ApplicationController
 
   def edit
     @truck = Truck.find(params[:id])
+
+    if @truck.user != current_user
+      @errors = "Invalid Action"
+      render "trucks/show"
+    end
   end
 
   def update
     @truck = Truck.find(params[:id])
-    @truck.update_attributes(truck_params)
 
+    if @truck.user != current_user
+      @errors = "Invalid Action"
+      render "trucks/show"
+    end
+
+    @truck.update_attributes(truck_params)
     redirect_to truck_path
   end
 
   def destroy
     @truck = Truck.find(params[:id])
-    @truck.destroy
 
+    if @truck.user != current_user
+      @errors = "Invalid Action"
+      render "trucks/show"
+    end
+
+    @truck.destroy
     redirect_to root_path
   end
 
