@@ -8,7 +8,7 @@ class TrucksController < ApplicationController
   end
 
   def create
-    @truck = Truck.create(truck_params)
+    @truck = current_user.trucks.create!(truck_params)
     redirect_to root_path
   end
 
